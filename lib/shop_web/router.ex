@@ -17,10 +17,6 @@ defmodule ShopWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :auth do
-    plug Plugs.EnsureAuthenticated
-  end
-
   scope "/", ShopWeb do
     pipe_through :browser
 
