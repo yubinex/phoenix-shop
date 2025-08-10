@@ -13,8 +13,27 @@ defmodule Shop.Product do
   @doc false
   def changeset(product, attrs) do
     product
-    |> cast(attrs, [:name, :slug, :console])
-    |> validate_required([:name, :slug, :console])
+    |> cast(attrs, [:name, :console])
+    |> validate_required([:name, :console])
+    |> format_name()
+    |> slugify()
     |> unique_constraint(:slug)
+  end
+
+  defp format_name(changeset) do
+    name =
+      changeset.changes.name
+      |> String.trim()
+
+    put_change(changeset, :name, name)
+  end
+
+  defp slugify(changeset) do
+    slug =
+      changeset.changes.name
+      |> String.downcase()
+      |> String.replace(" ", "-")
+
+    put_change(changeset, :slug, slug)
   end
 end
