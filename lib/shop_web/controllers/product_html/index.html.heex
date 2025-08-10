@@ -2,9 +2,6 @@
 
 <.product :for={product <- @products} name={product.name} />
 
-<a
-  class="m-4 text-blue-500 hover:text-blue-700 transition duration-300 ease-in-out"
-  href={~p"/?#{[console: "xbox", admin: true]}"}
->
-  Go back to home page
-</a>
+<.button href={~p"/"}>
+  Back to home page
+</.button>
