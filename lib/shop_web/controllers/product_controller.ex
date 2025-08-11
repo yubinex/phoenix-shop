@@ -11,11 +11,11 @@ defmodule ShopWeb.ProductController do
     |> render(:index)
   end
 
-  def show(conn, %{"id" => id}) do
-    product = Repo.get(Product, id)
+  def show(conn, %{"slug" => slug}) do
+    product = Repo.get_by(Product, slug: slug)
 
     conn
     |> assign(:product, product)
-    |> render(:show, id: id)
+    |> render(:show)
   end
 end

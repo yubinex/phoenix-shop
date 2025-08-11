@@ -1,6 +1,25 @@
-<p :if={@promo}>You have a promotion code!</p>
+<p :if={@promo} class="text-sm font-medium text-yellow-400 mb-4">
+  You have a promotion code!
+</p>
 
-<.product :for={product <- @products} name={product.name} />
+<div
+  :for={product <- @products}
+  class="bg-gray-900 p-4 rounded-lg border border-gray-800 shadow-md mb-4 hover:bg-gray-800 hover:scale-105 transition-transform duration-200 cursor-pointer"
+>
+  <.link
+    href={~p"/products/#{product.slug}"}
+    class="flex flex-col space-y-1 text-white no-underline hover:text-purple-300 transition-colors duration-200"
+  >
+    <div class="flex items-center space-x-2">
+      <span class="text-purple-400 text-sm font-medium">ID:</span>
+      <span class="text-lg font-semibold">{product.id}</span>
+    </div>
+    <div class="flex items-center space-x-2">
+      <span class="text-purple-400 text-sm font-medium">Name:</span>
+      <span class="text-lg font-semibold">{product.name}</span>
+    </div>
+  </.link>
+</div>
 
 <.button href={~p"/"}>
   Back to home page

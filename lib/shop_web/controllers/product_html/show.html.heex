@@ -1,4 +1,15 @@
-<.product :if={@product} name={@product.name} />
+<div class="bg-gray-900 mb-10 p-4 rounded-lg border border-gray-800 shadow-md">
+  <div :if={@product} class="flex flex-col space-y-1 text-white">
+    <div class="flex items-center space-x-2">
+      <span class="text-purple-400 text-sm font-medium">ID:</span>
+      <span class="text-lg font-semibold">{@product.id}</span>
+    </div>
+    <div class="flex items-center space-x-2">
+      <span class="text-purple-400 text-sm font-medium">Name:</span>
+      <span class="text-lg font-semibold">{@product.name}</span>
+    </div>
+  </div>
+</div>
 
 <.button href={~p"/products"}>
   Back to product listing

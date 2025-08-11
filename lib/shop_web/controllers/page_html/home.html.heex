@@ -1,24 +1,33 @@
 <Layouts.flash_group flash={@flash} />
 
-<h1>Welcome to SHOP!</h1>
-<h2>This is the best video game e-commerce store</h2>
+<h1 class="text-3xl font-bold text-white mb-4">Welcome to SHOP!</h1>
+<h2 class="text-xl font-semibold text-gray-300 mb-6">
+  This is the best video game e-commerce store
+</h2>
 
-<hr class="my-10" />
+<hr class="my-10 border-gray-700" />
 
 <.button href={~p"/products"}>
   Go to product listing
 </.button>
 
-<p>Select your favorite console:</p>
+<div class="bg-gray-900 p-6 rounded-lg border border-gray-800 shadow-md mt-8 mb-6">
+  <p class="text-lg font-medium text-gray-200 mb-4">Select your favorite console:</p>
+  <form class="flex flex-col space-y-4">
+    <select
+      name="console"
+      id="console"
+      class="select select-bordered w-full max-w-xs text-white bg-gray-800 border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500"
+    >
+      <option value="pc">PC</option>
+      <option value="xbox">Xbox</option>
+      <option value="playstation">PlayStation</option>
+      <option value="nintendo">Nintendo</option>
+    </select>
+    <.button>
+      Save
+    </.button>
+  </form>
+</div>
 
-<form>
-  <select name="console" id="console">
-    <option value="pc">PC</option>
-    <option value="xbox">Xbox</option>
-    <option value="playstation">PlayStation</option>
-    <option value="nintendo">Nintendo</option>
-  </select>
-  <button type="submit">Save</button>
-</form>
-
-<p class="mt-8">Selected Console: {@console}</p>
+<p class="text-base font-medium text-gray-300 mt-8">Selected Console: {@console}</p>
