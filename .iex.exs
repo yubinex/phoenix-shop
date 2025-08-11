@@ -1,0 +1,1 @@
+alias Shop.{Repo, Product}
