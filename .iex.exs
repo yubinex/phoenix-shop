@@ -1,2 +1,3 @@
-alias Shop.{Repo, Product}
+alias Shop.Repo
+alias Shop.Products.Product
 import Ecto.Query
